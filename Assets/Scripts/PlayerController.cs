@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
         ChangeSpeed();
         Jump();
+        ReloadScene();
+    }
+
+    public void IncreaseSpeed()
+    {
+        surfaceEffector2D.speed += 1f;
     }
 
     private void RotatePlayer()
@@ -35,6 +42,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // For debugging purposes.
     private void ChangeSpeed()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -53,6 +61,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb2d.AddForce(Vector2.up * jumpAmount);
+        }
+    }
+
+    // For debugging purposes.
+    private void ReloadScene()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
