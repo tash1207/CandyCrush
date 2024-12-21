@@ -11,8 +11,11 @@ public class CrashDetection : MonoBehaviour
     [SerializeField] Sprite brokenCandyCaneImage;
     [SerializeField] ParticleSystem crashParticles;
 
+    float crashSoundEffectDelay = 0.2f;
     float reloadSceneDelay = 3.85f;
     float gameOverSpeed = 4f;
+
+    bool preventCrashSoundEffect = false;
     bool hasCrashed = false;
 
     BackgroundMusic backgroundMusic;
@@ -27,11 +30,17 @@ public class CrashDetection : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Snowman")
+        if (!preventCrashSoundEffect && other.gameObject.tag == "Snowman")
         {
-            // TODO: Fix double audio played because 2 colliders hit the snowman (sled and head).
             GetComponent<AudioSource>().PlayOneShot(crashSFX);
+            preventCrashSoundEffect = true;
+            Invoke("AllowCrashSoundEffect", crashSoundEffectDelay);
         }
+    }
+
+    private void AllowCrashSoundEffect()
+    {
+        preventCrashSoundEffect = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -56,6 +65,6 @@ public class CrashDetection : MonoBehaviour
 
     private void ReloadScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

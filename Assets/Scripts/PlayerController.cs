@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         ReloadScene();
+        ExitToMainMenu();
     }
 
     public void DisableControls()
@@ -75,6 +76,14 @@ public class PlayerController : MonoBehaviour
     private void ReloadScene()
     {
         if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
+
+    private void ExitToMainMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(0);
         }
