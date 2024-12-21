@@ -9,9 +9,10 @@ public class PlayerController : MonoBehaviour
     SurfaceEffector2D surfaceEffector2D;
 
     [SerializeField] float torqueAmount = 1f;
-    [SerializeField] float jumpAmount = 200f;
+    [SerializeField] float jumpAmount = 250f;
 
     bool canMove = true;
+    bool canJump = true;
 
     void Start()
     {
@@ -24,8 +25,10 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             RotatePlayer();
-            ChangeSpeed();
-            Jump();
+            if (canJump)
+            {
+                Jump();
+            }
         }
         ReloadScene();
     }
@@ -52,25 +55,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // For debugging purposes.
-    private void ChangeSpeed()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            surfaceEffector2D.speed += 1f;
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            surfaceEffector2D.speed -= 5f;
-        }
-    }
-
     private void Jump()
     {
-        // TODO: Prevent double jumps. Or only jump while on ground.
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb2d.AddForce(Vector2.up * jumpAmount);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Ground")
+        {
+            canJump = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other) {
+        if (other.gameObject.tag == "Ground")
+        {
+            canJump = false;
         }
     }
 
