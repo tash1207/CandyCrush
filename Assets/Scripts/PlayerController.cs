@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float torqueAmount = 1f;
     [SerializeField] float jumpAmount = 200f;
 
+    bool canMove = true;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -19,10 +21,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        RotatePlayer();
-        ChangeSpeed();
-        Jump();
+        if (canMove)
+        {
+            RotatePlayer();
+            ChangeSpeed();
+            Jump();
+        }
         ReloadScene();
+    }
+
+    public void DisableControls()
+    {
+        canMove = false;
     }
 
     public void IncreaseSpeed()
