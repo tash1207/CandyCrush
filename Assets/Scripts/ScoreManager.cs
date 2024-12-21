@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     void UpdateScore()
     {
         candyCaneText.text = candyCanesCollected + " / " + candyCanesTotal;
-        speedText.text = (10 + candyCanesCollected * 5) + " MPH";
+        speedText.text = (8 + candyCanesCollected * 2) + " MPH";
     }
 
     public void CollectCandyCane()
