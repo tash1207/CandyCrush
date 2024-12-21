@@ -17,11 +17,13 @@ public class CrashDetection : MonoBehaviour
 
     BackgroundMusic backgroundMusic;
     SurfaceEffector2D surfaceEffector2D;
+    ScoreManager scoreManager;
 
     void Start()
     {
         backgroundMusic = FindObjectOfType<BackgroundMusic>();
         surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -38,6 +40,7 @@ public class CrashDetection : MonoBehaviour
             candyCanePerson.GetComponent<SpriteRenderer>().sprite = brokenCandyCaneImage;
             crashParticles.Play();
             surfaceEffector2D.speed = gameOverSpeed;
+            scoreManager.EndGame();
 
             Invoke("ReloadScene", reloadSceneDelay);
         }
