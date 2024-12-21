@@ -4925,6 +4925,7 @@ GameObject:
   - component: {fileID: 8604633844751371030}
   - component: {fileID: 1484869381849254494}
   - component: {fileID: 6038611356988914013}
+  - component: {fileID: 5502143593258012334}
   m_Layer: 0
   m_Name: CandyCaneCollectible
   m_TagString: Untagged
@@ -4981,7 +4982,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023884773, y: -0.19108188}
+  m_Offset: {x: -0.022354126, y: -0.19478798}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4992,7 +4993,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3380375, y: 0.61783624}
+  m_Size: {x: 0.31411743, y: 0.6091652}
   m_EdgeRadius: 0
 --- !u!114 &6038611356988914013
 MonoBehaviour:
@@ -5007,3 +5008,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectibleSound: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+--- !u!70 &5502143593258012334
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683312495949627231}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0041656494, y: -0.21158218}
+  m_Size: {x: 1.5869446, y: 1.9209976}
+  m_Direction: 0

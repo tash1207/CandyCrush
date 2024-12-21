@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb2d.AddForce(Vector2.up * jumpAmount);
+            canJump = false;
         }
     }
 
@@ -67,13 +68,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             canJump = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other) {
-        if (other.gameObject.tag == "Ground")
-        {
-            canJump = false;
         }
     }
 

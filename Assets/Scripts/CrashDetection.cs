@@ -26,6 +26,14 @@ public class CrashDetection : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Snowman")
+        {
+            // TODO: Fix double audio played because 2 colliders hit the snowman (sled and head).
+            GetComponent<AudioSource>().PlayOneShot(crashSFX);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (!hasCrashed && other.tag == "Ground")
         {
