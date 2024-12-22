@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI speedText;
 
     int candyCanesCollected = 0;
-    int candyCanesTotal = 20;
+    int candyCanesTotal = 25;
 
     void UpdateScore()
     {

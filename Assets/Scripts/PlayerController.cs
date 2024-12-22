@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb2d;
     SurfaceEffector2D surfaceEffector2D;
 
-    [SerializeField] float torqueAmount = 1f;
+    [SerializeField] float torqueAmount = 150f;
     [SerializeField] float jumpAmount = 250f;
 
     bool canMove = true;
@@ -48,11 +48,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb2d.AddTorque(torqueAmount);
+            rb2d.AddTorque(torqueAmount * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            rb2d.AddTorque(-torqueAmount);
+            rb2d.AddTorque(-torqueAmount * Time.deltaTime);
         }
     }
 

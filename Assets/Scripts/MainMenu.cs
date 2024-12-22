@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] AudioClip mainMenuMusic;
+    [SerializeField] GameObject startMenu;
+    [SerializeField] GameObject instructionsMenu;
+
     AudioSource audioSource;
 
     void Start()
@@ -31,5 +34,17 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void ShowInstructionsMenu()
+    {
+        startMenu.SetActive(false);
+        instructionsMenu.SetActive(true);
+    }
+
+    public void ShowStartMenu()
+    {
+        startMenu.SetActive(true);
+        instructionsMenu.SetActive(false);
     }
 }
