@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        surfaceEffector2D.speed += 1f;
+        surfaceEffector2D.speed += 1.2f;
     }
 
     private void RotatePlayer()
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Ground")
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Snowman")
         {
             canJump = true;
         }

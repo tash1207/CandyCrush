@@ -6,6 +6,7 @@ public class BackgroundMusic : MonoBehaviour
 {
     [SerializeField] AudioClip levelMusic;
     [SerializeField] AudioClip endGameMusic;
+    [SerializeField] AudioClip finishLineMusic;
     AudioSource audioSource;
 
     void Start()
@@ -23,6 +24,12 @@ public class BackgroundMusic : MonoBehaviour
     public void PlayEndGameMusic()
     {
         audioSource.clip = endGameMusic;
+        audioSource.Play();
+    }
+
+    public void PlayFinishLineMusic()
+    {
+        audioSource.clip = finishLineMusic;
         audioSource.Play();
     }
 }
