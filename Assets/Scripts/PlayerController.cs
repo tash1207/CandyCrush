@@ -39,6 +39,12 @@ public class PlayerController : MonoBehaviour
         canMove = false;
     }
 
+    public void FreezePlayer()
+    {
+        rb2d.velocity = Vector2.zero;
+        rb2d.gravityScale = 0;
+    }
+
     public void IncreaseSpeed()
     {
         surfaceEffector2D.speed += 1.2f;
